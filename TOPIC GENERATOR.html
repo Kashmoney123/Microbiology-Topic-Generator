@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Topic Plate: Microbiology Project and Seminar topics</title>
+<link rel="icon" href="https://learn-genetics.b-cdn.net/microbiome/intro/images/microbes.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Literata:opsz,wght@7..72,400;7..72,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F6F4FA; --panel:#FFFFFF; --ink:#1F1B2E; --muted:#5E5873; --line:#DDD6EA;
+  --violet:#4A2C82; --violet-soft:#EAE3F7; --on-violet:#FFFFFF;
+  --safranin:#B8244F; --safranin-soft:#FBE4EC; --agar:#EFEAF8; --focus:#B8244F;
+  --serif:"Literata",Georgia,"Times New Roman",serif;
+  --sans:"Instrument Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#15121F; --panel:#1E1A2C; --ink:#EEEAF7; --muted:#A9A2BD; --line:#352E4A;
+    --violet:#B9A0F2; --violet-soft:#2B2342; --on-violet:#1A1230;
+    --safranin:#F0668F; --safranin-soft:#3A2030; --agar:#241E36; --focus:#F0668F;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#15121F; --panel:#1E1A2C; --ink:#EEEAF7; --muted:#A9A2BD; --line:#352E4A;
+  --violet:#B9A0F2; --violet-soft:#2B2342; --on-violet:#1A1230;
+  --safranin:#F0668F; --safranin-soft:#3A2030; --agar:#241E36; --focus:#F0668F;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55;-webkit-text-size-adjust:100%}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+
+/* header */
+.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding:22px 0 6px}
+.brand{font-family:var(--serif);font-weight:600;font-size:20px;color:var(--ink);text-decoration:none}
+.top nav{display:flex;flex-wrap:wrap;gap:18px}
+.top nav a{color:var(--muted);text-decoration:none;font-weight:500;font-size:15px}
+.top nav a:hover{color:var(--violet)}
+.badge{display:inline-block;min-width:20px;padding:0 6px;border-radius:999px;background:var(--safranin);color:#fff;font-size:12px;text-align:center;line-height:20px}
+
+/* hero */
+.hero{padding:30px 0 18px}
+h1{font-family:var(--serif);font-weight:600;font-size:clamp(32px,5.4vw,52px);line-height:1.08;margin:0 0 12px;max-width:17ch;letter-spacing:-.01em}
+.lede{margin:0 0 28px;color:var(--muted);font-size:18px;max-width:56ch}
+.gen{display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:22px;align-items:start}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px}
+.controls{padding:20px;display:grid;gap:18px}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+legend,.field label{display:block;font-weight:600;font-size:15px;margin-bottom:8px;padding:0}
+.seg{display:flex;flex-wrap:wrap;gap:6px}
+.seg label{position:relative;display:block;margin:0;font-weight:500}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg span{display:block;padding:8px 13px;border:1px solid var(--line);border-radius:999px;cursor:pointer;font-size:15px;background:var(--panel)}
+.seg input:checked + span{background:var(--violet-soft);border-color:var(--violet);color:var(--violet);font-weight:600}
+.seg input:focus-visible + span{outline:3px solid var(--focus);outline-offset:2px}
+select,input[type=text],input[type=search]{width:100%;font:inherit;font-size:15px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--panel);color:var(--ink)}
+.btn{font:inherit;font-weight:600;font-size:15px;padding:11px 18px;border-radius:10px;border:1px solid var(--violet);background:var(--violet);color:var(--on-violet);cursor:pointer}
+.btn:hover{filter:brightness(1.08)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--violet);color:var(--violet);filter:none}
+.btn.small{padding:6px 12px;font-size:14px}
+.btn[aria-pressed=true]{background:var(--violet-soft);border-color:var(--violet);color:var(--violet)}
+
+/* result */
+.result{padding:24px}
+.result-head{display:grid;grid-template-columns:minmax(0,1fr) 128px;gap:18px;align-items:start}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.chip{display:inline-block;padding:3px 10px;border-radius:999px;font-size:13px;font-weight:500;background:var(--violet-soft);color:var(--violet)}
+.chip.type{background:var(--safranin-soft);color:var(--safranin)}
+.chip.mode{background:transparent;border:1px solid var(--line);color:var(--muted)}
+.result h2{font-family:var(--serif);font-weight:600;font-size:clamp(23px,3.2vw,31px);line-height:1.25;margin:0}
+.note{margin:12px 0 0;font-size:14px;color:var(--muted);background:var(--agar);padding:8px 12px;border-radius:10px}
+#dish{width:100%;height:auto}
+.col{transform-box:fill-box;transform-origin:center;transform:scale(0);opacity:0;transition:transform .55s cubic-bezier(.2,.8,.2,1),opacity .35s ease}
+.col.on{transform:scale(1);opacity:.92}
+.result h3{font-size:15px;font-weight:600;margin:22px 0 6px}
+.result p{margin:0}
+.result ul{margin:0;padding-left:20px}
+.result li{margin:4px 0}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+
+/* sections */
+section.block{padding:44px 0 8px}
+h2.sec{font-family:var(--serif);font-weight:600;font-size:clamp(24px,3.4vw,32px);margin:0 0 6px}
+.sec-sub{color:var(--muted);margin:0 0 20px;max-width:60ch}
+.filters{display:grid;grid-template-columns:2fr 1fr 1.2fr 1fr auto;gap:10px;align-items:center;margin-bottom:10px}
+.libmeta{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:14px;margin:8px 0 4px}
+ul.tlist{list-style:none;margin:0;padding:0}
+.titem{display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-top:1px solid var(--line)}
+.titem .tt{font-family:var(--serif);font-size:18px;line-height:1.35;margin:0 0 8px}
+.titem .chips{margin:0}
+.tact{display:flex;flex-direction:column;gap:6px;flex:none}
+.empty{color:var(--muted);padding:18px 0;margin:0}
+.more{margin:16px 0 0}
+.note-foot{margin:48px 0 40px;padding:16px 18px;border-radius:12px;background:var(--agar);color:var(--muted);font-size:14px;max-width:72ch}
+.shortbar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--ink);color:var(--paper);padding:10px 16px;border-radius:10px;font-size:14px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:10;max-width:90%}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media (max-width:860px){
+  .gen{grid-template-columns:1fr}
+  .filters{grid-template-columns:1fr 1fr}
+  .filters .wide{grid-column:1 / -1}
+}
+@media (max-width:520px){
+  .result-head{grid-template-columns:minmax(0,1fr) 84px;gap:12px}
+  .titem{flex-direction:column;gap:10px}
+  .tact{flex-direction:row}
+  .result{padding:18px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .col{transition:none}
+  .toast{transition:none}
+}
+</style>
+</head>
+<body id="top">
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#top">Topic Plate</a>
+    <nav aria-label="Sections">
+      <a href="#generator">Generator</a>
+      <a href="#library">Library</a>
+      <a href="#shortlist">Shortlist <span class="badge" id="navCount">0</span></a>
+    </nav>
+  </header>
+
+  <section class="hero" id="generator">
+    <h1>Find your final-year microbiology topic</h1>
+    <p class="lede">Generate a project or seminar topic that fits the lab you can actually access, or browse <span id="count">90</span> ready-made topics.</p>
+
+    <div class="gen">
+      <div class="controls panel">
+        <fieldset>
+          <legend>I need a</legend>
+          <div class="seg">
+            <label><input type="radio" name="type" value="project" checked><span>Project</span></label>
+            <label><input type="radio" name="type" value="seminar"><span>Seminar</span></label>
+          </div>
+        </fieldset>
+        <fieldset id="labField">
+          <legend>Lab access</legend>
+          <div class="seg">
+            <label><input type="radio" name="lab" value="basic" checked><span>Basic lab</span></label>
+            <label><input type="radio" name="lab" value="molecular"><span>Molecular lab</span></label>
+            <label><input type="radio" name="lab" value="desk"><span>No lab</span></label>
+          </div>
+        </fieldset>
+        <div class="field">
+          <label for="area">Area</label>
+          <select id="area"></select>
+        </div>
+        <div class="field" id="locField">
+          <label for="loc">Study location (optional)</label>
+          <input type="text" id="loc" placeholder="For example, Lagos" maxlength="40" autocomplete="off">
+        </div>
+        <button class="btn" id="go" type="button">Generate a topic</button>
+      </div>
+
+      <article class="result panel">
+        <div class="result-head">
+          <div>
+            <div class="chips" id="rChips"></div>
+            <h2 id="rTitle" aria-live="polite"></h2>
+            <p class="note" id="rNote" hidden></p>
+          </div>
+          <svg id="dish" viewBox="0 0 200 200" role="img" aria-label="A petri dish where new colonies appear each time you generate a topic">
+            <circle cx="100" cy="100" r="96" fill="none" stroke="var(--line)" stroke-width="4"/>
+            <circle cx="100" cy="100" r="88" fill="var(--agar)" stroke="var(--line)"/>
+            <g id="colonies"></g>
+          </svg>
+        </div>
+        <h3>How to approach it</h3>
+        <p id="rHint"></p>
+        <h3>Before you commit</h3>
+        <ul id="rList"></ul>
+        <div class="actions">
+          <button class="btn ghost" id="again" type="button">Generate another</button>
+          <button class="btn ghost" id="save" type="button" aria-pressed="false">Save to shortlist</button>
+          <button class="btn ghost" id="copy" type="button">Copy topic</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="block" id="library">
+    <h2 class="sec">Topic library</h2>
+    <p class="sec-sub">Search by keyword, or narrow by type, area and the lab access you have.</p>
+    <div class="filters">
+      <input class="wide" type="search" id="q" placeholder="Search topics, for example biofilm or poultry" aria-label="Search topics">
+      <select id="fType" aria-label="Filter by type">
+        <option value="all">All types</option>
+        <option value="project">Projects</option>
+        <option value="seminar">Seminars</option>
+      </select>
+      <select id="fArea" aria-label="Filter by area"></select>
+      <select id="fLab" aria-label="Filter by lab access">
+        <option value="all">Any lab access</option>
+        <option value="basic">Basic lab</option>
+        <option value="molecular">Molecular lab</option>
+        <option value="desk">No lab needed</option>
+      </select>
+      <button class="btn ghost small" id="reset" type="button">Reset</button>
+    </div>
+    <div class="libmeta"><span id="libCount"></span></div>
+    <ul class="tlist" id="libList"></ul>
+    <p class="more"><button class="btn ghost" id="more" type="button">Show more topics</button></p>
+  </section>
+
+  <section class="block" id="shortlist">
+    <h2 class="sec">Your shortlist</h2>
+    <p class="sec-sub">Saved topics stay in this browser. Copy the list to take it to your supervisor.</p>
+    <div class="shortbar">
+      <button class="btn ghost small" id="copyAll" type="button">Copy shortlist</button>
+      <button class="btn ghost small" id="clearAll" type="button">Clear shortlist</button>
+    </div>
+    <ul class="tlist" id="shortList"></ul>
+  </section>
+
+  <p class="note-foot">These topics are starting points, not approved titles. Confirm with your supervisor that a topic is original for your department, that your lab has the materials it needs, and get ethical clearance before collecting human or animal samples.</p>
+</div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+(function(){
+'use strict';
+
+/* ---------- helpers ---------- */
+var $=function(id){return document.getElementById(id)};
+var esc=function(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})};
+var cap=function(s){return /^[a-z][A-Z]/.test(s)?s:s.charAt(0).toUpperCase()+s.slice(1)};
+var pick=function(a){return a[Math.floor(Math.random()*a.length)]};
+var fill=function(t,o){return t.replace(/\{(\w+)\}/g,function(_,k){return o[k]===undefined?'':o[k]})};
+var locPhrase=function(v){v=(v||'').trim().replace(/^in\s+/i,'');return v?' in '+v:''};
+var MODE={basic:'Basic lab',molecular:'Molecular lab',desk:'No lab needed'};
+
+/* ---------- generator data ---------- */
+var AREAS=[
+{id:'clinical',name:'Clinical and diagnostic',
+ pairs:[['Staphylococcus aureus','nasal swabs of university students'],['Staphylococcus aureus','wound swabs of surgical patients'],['Escherichia coli','urine samples of pregnant women'],['Klebsiella pneumoniae','sputum samples of hospitalised patients'],['Pseudomonas aeruginosa','burn wound swabs'],['Salmonella Typhi','blood and stool samples of febrile patients'],['Streptococcus agalactiae','vaginal swabs of pregnant women'],['Enterobacteriaceae','the mobile phones of healthcare workers'],['Streptococcus pneumoniae','throat swabs of school children'],['Helicobacter pylori','stool samples of dyspeptic patients']],
+ ptpl:['Prevalence and antibiogram of {org} from {src}{loc}','Biofilm formation and antibiotic susceptibility of {org} from {src}{loc}','Occurrence of multidrug-resistant {org} from {src}{loc}'],
+ mol:', with PCR detection of resistance genes',
+ pool:['tuberculosis diagnostics in low-resource settings','blood culture and rapid sepsis diagnostics','the human microbiome in health and disease','urinary tract infection pathogenesis and management','rapid diagnostic tests for typhoid fever','Helicobacter pylori infection and gastric cancer','point-of-care molecular testing','bacterial meningitis surveillance in the African meningitis belt'],
+ survey:['hand hygiene','antibiotic use for urinary tract infections'],
+ silico:['In silico analysis of virulence genes in publicly available Staphylococcus aureus genomes','Lineage analysis of Salmonella Typhi genomes from Africa using public databases'],
+ m:{basic:'Collect samples with ethical approval, culture on selective and differential media, identify by Gram stain and biochemical tests, then run Kirby-Bauer disc diffusion.',mol:'Culture and identify isolates first, then extract DNA and run PCR for your target genes, with positive and negative controls.'}},
+{id:'amr',name:'Antimicrobial resistance',
+ pairs:[['Escherichia coli','poultry farms'],['Salmonella species','retail chicken meat'],['Staphylococcus aureus','raw cow milk'],['Enterobacteriaceae','hospital wastewater'],['Pseudomonas aeruginosa','hospital sink and surface swabs'],['Klebsiella pneumoniae','clinical urine samples'],['Escherichia coli','cattle and pig faeces']],
+ ptpl:['Antibiotic resistance profile of {org} from {src}{loc}','Prevalence of multidrug-resistant {org} in {src}{loc}','Effect of selected plant extracts on multidrug-resistant {org} from {src}{loc}'],
+ mol:', with PCR detection of resistance genes',
+ pool:['antimicrobial resistance surveillance in sub-Saharan Africa','phage therapy as an alternative to antibiotics','antimicrobial peptides','efflux pumps and multidrug resistance','carbapenem-resistant Enterobacterales','antibiotic stewardship programmes','novel antibiotic discovery from soil and marine microbes','horizontal gene transfer and the spread of resistance'],
+ survey:['antibiotic self-medication','antimicrobial resistance'],
+ silico:['In silico analysis of resistance genes in publicly available Klebsiella pneumoniae genomes','Plasmid-borne beta-lactamase genes in Escherichia coli genomes from Africa: a database study','Molecular docking of plant phytochemicals against bacterial resistance targets'],
+ m:{basic:'Isolate on selective media, confirm with biochemical tests, and run Kirby-Bauer susceptibility testing against CLSI breakpoints. Add combined-disc tests if you screen for ESBLs.',mol:'After phenotypic testing, extract DNA and use PCR to detect resistance genes such as blaCTX-M, blaTEM and mecA.'}},
+{id:'food',name:'Food and dairy',
+ pairs:[['Escherichia coli and Salmonella species','street-vended ready-to-eat foods'],['Staphylococcus aureus','suya and other roadside meats'],['Bacillus cereus','cooked rice sold in eateries'],['coliforms','fresh-cut fruits and vegetables'],['Listeria monocytogenes','ready-to-eat meat products'],['lactic acid bacteria','fermented cereal gruels such as ogi and kunu'],['moulds','stored maize and groundnut']],
+ ptpl:['Occurrence of {org} in {src}{loc}','Isolation and characterisation of {org} from {src}{loc}','Microbiological quality of {src}, with emphasis on {org}{loc}'],
+ mol:', with 16S rRNA or ITS sequencing of isolates',
+ pool:['foodborne pathogens and food safety in Africa','bacteriocins as natural food preservatives','probiotics and functional foods','HACCP and microbiological food safety systems','mycotoxin contamination of staple foods','fermented foods and gut health','Listeria monocytogenes in ready-to-eat foods','novel food preservation technologies'],
+ survey:['food hygiene','street food safety'],
+ silico:['Bacteriocin gene clusters in Lactobacillus genomes: a bioinformatic survey','Comparative genomics of foodborne Salmonella isolates from Africa'],
+ m:{basic:'Use serial dilution and plating for total counts, selective media for your target organisms, and standard biochemical identification.',mol:'After isolation, amplify the 16S rRNA gene (or ITS for fungi) and compare sequences against NCBI BLAST.'}},
+{id:'env',name:'Environmental and water',
+ pairs:[['hydrocarbon-degrading bacteria','oil-contaminated soil'],['faecal coliforms','well and borehole water'],['heavy metal-tolerant bacteria','dumpsite soil'],['plastic-degrading microorganisms','landfill soil'],['pathogenic bacteria','public toilets and door handles'],['Pseudomonas species','abattoir wastewater'],['enteric bacteria','sachet and bottled water']],
+ ptpl:['Isolation and characterisation of {org} from {src}{loc}','Occurrence and diversity of {org} in {src}{loc}','Bacteriological assessment of {src}, with a focus on {org}{loc}'],
+ mol:', with 16S rRNA sequencing of isolates',
+ pool:['microbial bioremediation of oil-polluted environments','microplastics and microbial communities','wastewater-based epidemiology','biofilms in drinking water systems','microbial fuel cells','antibiotic resistance genes in the environment','bioleaching and biomining','cyanobacterial blooms and water quality'],
+ survey:['household water treatment','waste disposal and sanitation'],
+ silico:['Metagenomic analysis of publicly available oil-contaminated soil datasets','Bioinformatic prediction of plastic-degrading enzymes in bacterial genomes'],
+ m:{basic:'Use membrane filtration or the multiple-tube method for coliforms, enrichment and selective plating for target organisms, and measure pH, turbidity and conductivity alongside.',mol:'Obtain pure cultures, identify them by 16S rRNA sequencing and build a phylogenetic tree in MEGA.'}},
+{id:'biotech',name:'Industrial and biotechnology',
+ pairs:[['amylase','Aspergillus species isolated from cassava waste'],['cellulase','fungi isolated from decaying wood and sawdust'],['bioethanol','Saccharomyces cerevisiae using plantain peels'],['biosurfactant','bacteria isolated from oil-contaminated soil'],['lipase','bacteria from abattoir wastewater'],['citric acid','Aspergillus niger using pineapple waste'],['biogas','microbial consortia from cow dung and kitchen waste']],
+ ptpl:['Production and optimisation of {org} by {src}{loc}','Kinetics and process optimisation of {org} production by {src}{loc}'],
+ mol:', with molecular identification of the producing strains',
+ pool:['CRISPR-based microbial engineering','synthetic biology applications of microorganisms','microbial production of bioplastics','single-cell protein from microbial biomass','microbial enzymes in industry','biofuel production from lignocellulosic waste','probiotic strain development','microbial biosensors'],
+ survey:[],
+ silico:['Computational screening of microbial cellulases for biofuel production','Comparative genomics of industrial Aspergillus niger strains'],
+ m:{basic:'Screen on indicator plates, run submerged fermentation, and optimise pH, temperature and substrate concentration one factor at a time.',mol:'Identify your best producer by sequencing, then compare yield across the optimised conditions.'}},
+{id:'virology',name:'Virology and phage biology',
+ pairs:[['bacteriophages active against Escherichia coli','sewage'],['bacteriophages active against Salmonella species','poultry farm effluent'],['bacteriophages active against Pseudomonas aeruginosa','hospital wastewater'],['bacteriophages active against Klebsiella pneumoniae','abattoir effluent']],
+ ptpl:['Isolation and characterisation of {org} from {src}{loc}','Host range and lytic activity of {org} from {src}{loc}','Isolation of {org} from {src} and evaluation of their therapeutic potential{loc}'],
+ mol:', with molecular characterisation of the phages',
+ pool:['bacteriophage defence systems beyond CRISPR','mRNA vaccine technology','zoonotic spillover and viral emergence','Lassa fever epidemiology and control','hepatitis B and C control in Nigeria','HIV latency and cure strategies','mpox emergence and control','viral evolution and antigenic drift'],
+ survey:['hepatitis B vaccination','Lassa fever prevention'],
+ silico:['Phylogenetic analysis of Lassa virus sequences from Nigeria','Comparative genomics of bacteriophages infecting Pseudomonas aeruginosa'],
+ m:{basic:'Enrich with the host bacterium, filter the sample, then use spot tests and the double-agar overlay method to detect plaques.',mol:'Extract phage nucleic acid and confirm identity with PCR or sequencing.'}},
+{id:'mycology',name:'Mycology',
+ pairs:[['dermatophytes','skin scrapings of school children'],['Candida species','vaginal swabs of women attending clinics'],['Aspergillus and Penicillium species','stored bread and cereals'],['airborne fungi','hostels, libraries and lecture halls'],['mycotoxigenic fungi','stored maize and groundnut']],
+ ptpl:['Isolation and identification of {org} from {src}{loc}','Occurrence of {org} in {src}{loc}','Antifungal activity of selected plant extracts against {org} from {src}{loc}'],
+ mol:', with ITS sequencing for species identification',
+ pool:['Candida auris as an emerging pathogen','aflatoxins and human health','fungal biocontrol agents','antifungal resistance mechanisms','invasive fungal infections in immunocompromised patients','mushrooms as sources of bioactive compounds','the fungal microbiome (mycobiome)','post-harvest fungal spoilage and its control'],
+ survey:['fungal skin infections','food storage and mould growth'],
+ silico:['Phylogenetic analysis of ITS sequences from Aspergillus section Flavi','Aflatoxin biosynthetic gene clusters in publicly available Aspergillus genomes'],
+ m:{basic:'Culture on Sabouraud dextrose agar with chloramphenicol, then identify by colony morphology and lactophenol cotton blue staining.',mol:'Amplify the ITS region of pure isolates and compare the sequences with NCBI or UNITE.'}},
+{id:'public',name:'Public health and epidemiology',
+ pairs:[['intestinal parasites','stool samples of primary school pupils'],['enteric pathogens','the hands of food vendors'],['Salmonella Typhi','febrile patients attending primary healthcare centres'],['bacterial contaminants','the hands of healthcare workers'],['Vibrio species','surface water used by communities'],['pathogenic bacteria','school toilets and classroom surfaces']],
+ ptpl:['Prevalence and risk factors of {org} in {src}{loc}','Occurrence and public health significance of {org} in {src}{loc}'],
+ mol:', with molecular typing of selected isolates',
+ pool:['One Health approaches to zoonotic disease control','cholera outbreaks in Nigeria','drug-resistant tuberculosis control','lessons from COVID-19 for microbial surveillance in Africa','neglected tropical diseases','water, sanitation and hygiene and infectious disease','vaccine-preventable disease control','hospital-acquired infection prevention'],
+ survey:['handwashing','vaccination','malaria and typhoid prevention'],
+ silico:['Spatial analysis of cholera outbreaks in Nigeria using public surveillance data','Time-trend analysis of reported infectious diseases in Nigeria using public surveillance data'],
+ m:{basic:'Agree on sampling with the clinic or school, get ethical clearance and consent, then use standard parasitological or culture methods.',mol:'Culture first, then apply PCR-based typing to a subset of isolates.'}},
+{id:'genomics',name:'Genomics and bioinformatics',basic:false,
+ pairs:[['bacterial isolates','clinical samples'],['bacterial isolates','oil-contaminated soil'],['bacterial isolates','fermented foods'],['environmental bacteria','hospital wastewater']],
+ ptpl:['Molecular identification and phylogenetic analysis of {org} from {src}{loc}','16S rRNA gene diversity of {org} from {src}{loc}'],
+ mol:'',
+ pool:['whole-genome sequencing in outbreak investigation','metagenomics for pathogen detection','machine learning for antimicrobial resistance prediction','nanopore sequencing in resource-limited laboratories','pangenome analysis of bacterial pathogens','microbiome sequencing and data analysis','genomic surveillance of infectious diseases in Africa','CRISPR-Cas diagnostics'],
+ survey:[],
+ silico:['Pangenome analysis of Escherichia coli using publicly available genomes','Machine learning prediction of antibiotic resistance from bacterial genome data','Comparative genomics of Salmonella isolates from Africa using public databases'],
+ m:{basic:'',mol:'Extract DNA, amplify and sequence the target region (for example 16S rRNA), then align and build a tree in MEGA.'}},
+{id:'agric',name:'Agricultural and soil',
+ pairs:[['plant growth-promoting rhizobacteria','rhizosphere soil of maize and cowpea'],['Rhizobium species','root nodules of cowpea and soybean'],['Trichoderma species','farm soil'],['phytopathogenic fungi','post-harvest rot of yam and tomato'],['bacterial soft rot pathogens','tomato and pepper fruits'],['cellulolytic microorganisms','compost heaps']],
+ ptpl:['Isolation and characterisation of {org} from {src}{loc}','Occurrence and diversity of {org} in {src}{loc}'],
+ mol:', with molecular identification of isolates',
+ pool:['biofertilizers and sustainable agriculture','the soil microbiome and climate change','biological nitrogen fixation','plant-microbe interactions in the rhizosphere','biopesticides from microorganisms','microbial composting','plant disease management using beneficial microbes','endophytic microorganisms'],
+ survey:['composting and organic waste disposal'],
+ silico:['Comparative genomics of nitrogen-fixing Rhizobium strains','Genome mining for biocontrol genes in Trichoderma'],
+ m:{basic:'Use serial dilution on selective media, test for plant-growth traits such as phosphate solubilisation and IAA production, and confirm effects in a simple pot trial.',mol:'Identify top isolates by 16S rRNA or ITS sequencing.'}},
+{id:'immuno',name:'Immunology and vaccines',basic:false,molOK:false,
+ pairs:[],ptpl:[],mol:'',
+ pool:['innate immune evasion by bacterial pathogens','malaria vaccine development (RTS,S and R21)','host-microbiome interactions and immunity','the immunology of tuberculosis latency','monoclonal antibodies against infectious diseases','inflammasomes in infectious disease','trained immunity','vaccine adjuvants'],
+ survey:['vaccine hesitancy','childhood immunisation'],
+ silico:['Epitope prediction for vaccine design against Salmonella Typhi','Immunoinformatic design of a multi-epitope vaccine candidate against Lassa virus'],
+ m:{basic:'',mol:''}}
+];
+var byId={};AREAS.forEach(function(a){byId[a.id]=a});
+
+var STPL=[
+ function(x){return 'Recent advances in '+x},
+ function(x){return 'Current challenges and future directions in '+x},
+ function(x){return cap(x)+': a review of current evidence'},
+ function(x){return 'Emerging trends in '+x},
+ function(x){return cap(x)+' in the African context: opportunities and limitations'}
+];
+var SEM_HINT='Structure it as background, mechanisms, current evidence, gaps and controversies, then a conclusion. Aim for 20 to 30 references, mostly from the last five years.';
+var LISTS={
+ seminar:['Check that at least 20 recent papers exist on this topic.','Narrow the scope until it fits a 20 to 30 minute talk.','Confirm with your seminar supervisor that nobody else has taken it.'],
+ lab:['Ask your supervisor whether the lab has the media, reagents and equipment this needs.','Check that nobody in your department has done the same study recently.','Human or animal samples need ethical clearance before you collect anything.'],
+ survey:['Write the questionnaire and pre-test it with a few students.','Get ethical clearance and informed consent before collecting responses.','Work out the sample size you need and confirm you can reach it.'],
+ silico:['Confirm the databases and software are free and run on your computer.','Check how many genomes or sequences are publicly available before committing.','Ask your supervisor whether this counts as original work in your department.'],
+ review:['Check that enough recent studies exist (aim for at least 30).','Agree your inclusion and exclusion criteria with your supervisor.','Make sure nobody in your department has already reviewed this topic.']
+};
+var HINTS={
+ review:'Set inclusion criteria, search PubMed, Scopus and African Journals Online, screen the studies, and summarise the findings in a table.',
+ survey:'Design a short questionnaire, get ethical clearance, calculate your sample size with a standard formula, and analyse the responses in SPSS or Excel.',
+ silico:'Download public genomes or sequences from NCBI, analyse them with free tools such as BLAST, ABRicate or MEGA, and record the database versions you used.'
+};
+
+/* ---------- library data: [type, lab, title] ---------- */
+var L={
+clinical:[
+['p','b','Bacterial contamination of mobile phones of healthcare workers and students'],
+['p','b','Bacteriological profile and antibiogram of wound infections among post-operative patients'],
+['p','b','Urinary tract infection among pregnant women: causative organisms and susceptibility patterns'],
+['p','b','Evaluation of the Widal test against blood culture for typhoid diagnosis'],
+['p','m','PCR-based detection of Streptococcus agalactiae in pregnant women compared with culture'],
+['s','d','Point-of-care diagnostics for tuberculosis: progress and gaps in low-resource settings'],
+['s','d','Sepsis diagnostics: from blood culture to molecular platforms'],
+['s','d','The human microbiome in health and disease'],
+['s','d','Helicobacter pylori and gastric cancer: mechanisms of pathogenesis']],
+amr:[
+['p','b','Antibiotic susceptibility of Escherichia coli isolated from poultry farms and farm workers'],
+['p','b','Antibiotic-resistant bacteria in hospital wastewater before and after treatment'],
+['p','b','Biofilm formation and antibiotic tolerance of clinical Pseudomonas aeruginosa isolates'],
+['p','b','Antibacterial activity of Moringa oleifera, neem and bitter leaf extracts against multidrug-resistant bacteria'],
+['p','m','Detection of blaCTX-M and blaTEM genes in ESBL-producing Enterobacteriaceae'],
+['p','d','Antibiotic self-medication among university students: a questionnaire study'],
+['s','d','Antimicrobial resistance as a silent pandemic: surveillance in sub-Saharan Africa'],
+['s','d','Phage therapy as an alternative to antibiotics'],
+['s','d','Efflux pumps and the mechanisms of multidrug resistance'],
+['s','d','Antimicrobial peptides as next-generation therapeutics']],
+food:[
+['p','b','Microbiological quality of street-vended ready-to-eat foods'],
+['p','b','Isolation and characterisation of lactic acid bacteria from ogi, kunu and fermented milk'],
+['p','b','Bacterial contamination of fresh vegetables sold in open markets and the effect of washing methods'],
+['p','b','Mycotoxigenic fungi associated with stored maize and groundnut'],
+['p','b','Probiotic potential of lactic acid bacteria isolated from fermented foods'],
+['p','m','16S rRNA identification of spoilage bacteria in packaged fruit juice'],
+['s','d','Foodborne pathogens and food safety challenges in Africa'],
+['s','d','Bacteriocins as natural food preservatives'],
+['s','d','HACCP and microbiological food safety management']],
+env:[
+['p','b','Physicochemical and bacteriological quality of well and borehole water in a community'],
+['p','b','Bacteriological quality of sachet and bottled drinking water'],
+['p','b','Isolation of hydrocarbon-degrading bacteria from oil-contaminated soil'],
+['p','b','Heavy metal tolerance of bacteria isolated from dumpsite soil'],
+['p','b','Bacterial contamination of public toilets and lecture hall surfaces on a university campus'],
+['p','m','Plastic-degrading bacteria from landfill soil: isolation and 16S rRNA identification'],
+['s','d','Microbial bioremediation of oil spills: lessons from the Niger Delta'],
+['s','d','Microplastics and microbial communities in aquatic ecosystems'],
+['s','d','Wastewater-based epidemiology for pathogen surveillance']],
+biotech:[
+['p','b','Production of amylase by fungi isolated from cassava waste'],
+['p','b','Bioethanol production from plantain and cassava peels using Saccharomyces cerevisiae'],
+['p','b','Biosurfactant production by bacteria isolated from oil-contaminated soil'],
+['p','b','Biogas production from kitchen waste and cow dung: effect of co-digestion ratios'],
+['p','b','Optimisation of citric acid production by Aspergillus niger'],
+['s','d','CRISPR-Cas systems and their applications in microbial engineering'],
+['s','d','Microbial production of bioplastics (polyhydroxyalkanoates)'],
+['s','d','Single-cell protein: a microbial answer to food insecurity'],
+['s','d','Synthetic biology applications of microorganisms']],
+virology:[
+['p','b','Isolation of bacteriophages against Escherichia coli from sewage and their host range'],
+['p','b','Seroprevalence of hepatitis B surface antigen among blood donors or pregnant women'],
+['s','d','Bacteriophage defence systems beyond CRISPR'],
+['s','d','Emerging and re-emerging viral diseases: Lassa fever, mpox and Ebola'],
+['s','d','mRNA vaccine technology and its prospects for Africa'],
+['s','d','HIV latency and cure strategies'],
+['s','d','Zoonotic spillover and the emergence of novel viruses']],
+mycology:[
+['p','b','Prevalence of dermatophytes among primary school children'],
+['p','b','Candida species in vulvovaginal infections and their antifungal susceptibility'],
+['p','b','Airborne fungi in hostels, libraries and lecture halls'],
+['p','b','Fungal spoilage of bread and stored cereals'],
+['p','b','Antifungal activity of plant extracts against Candida albicans'],
+['s','d','Candida auris: an emerging multidrug-resistant yeast'],
+['s','d','Aflatoxins and human health in Africa'],
+['s','d','Fungal biocontrol agents in crop protection']],
+public:[
+['p','d','Hand hygiene knowledge and practices among university students: a cross-sectional survey'],
+['p','b','Prevalence of intestinal parasites among primary school pupils'],
+['p','b','Microbial load on the hands of food vendors and the impact of handwashing'],
+['p','d','Awareness and uptake of vaccines among students: a questionnaire study'],
+['p','b','Malaria and typhoid co-infection among febrile patients'],
+['s','d','One Health approaches to zoonotic disease control'],
+['s','d','Cholera outbreaks in Nigeria: drivers and control'],
+['s','d','Drug-resistant tuberculosis and the DOTS strategy'],
+['s','d','Lessons from COVID-19 for microbial surveillance in Africa']],
+genomics:[
+['p','d','In silico analysis of resistance genes in publicly available Klebsiella pneumoniae genomes'],
+['p','d','Comparative genomics of Salmonella isolates from Africa using public databases'],
+['p','d','Molecular docking of plant phytochemicals against bacterial target proteins'],
+['p','d','Phylogenetic analysis of 16S rRNA sequences of environmental bacterial isolates'],
+['p','m','Molecular identification and phylogenetic analysis of bacterial isolates from oil-contaminated soil'],
+['s','d','Whole-genome sequencing in outbreak investigation'],
+['s','d','Metagenomics for pathogen detection'],
+['s','d','Machine learning for antimicrobial resistance prediction'],
+['s','d','Nanopore sequencing in resource-limited laboratories']],
+agric:[
+['p','b','Isolation of Rhizobium from root nodules of cowpea and soybean'],
+['p','b','Plant growth-promoting rhizobacteria from the maize rhizosphere'],
+['p','b','Biocontrol of post-harvest fungal rot of tomato using Trichoderma species'],
+['p','b','Bacterial soft rot of tomato and pepper: isolation of pathogens and control'],
+['p','b','Microbial succession during composting of agricultural waste'],
+['s','d','Biofertilizers and sustainable agriculture'],
+['s','d','The soil microbiome and climate change'],
+['s','d','Plant-microbe interactions in the rhizosphere']],
+immuno:[
+['s','d','Innate immune evasion strategies of bacterial pathogens'],
+['s','d','Malaria vaccine development: RTS,S and R21'],
+['s','d','Host-microbiome interactions and immunity'],
+['s','d','The immunology of tuberculosis latency'],
+['s','d','Monoclonal antibodies against infectious diseases'],
+['p','d','Epitope prediction for vaccine design against Salmonella Typhi'],
+['p','d','Vaccine hesitancy among university students: a survey']]
+};
+var LIB=[];
+AREAS.forEach(function(a){(L[a.id]||[]).forEach(function(e){
+  LIB.push({area:a.id,type:e[0]==='p'?'project':'seminar',mode:{b:'basic',m:'molecular',d:'desk'}[e[1]],title:e[2]});
+})});
+
+/* ---------- state ---------- */
+var st={type:'project',lab:'basic',area:'any',last:'',cur:null};
+var lib={q:'',type:'all',area:'all',lab:'all',shown:15};
+var KEY='topicplate.saved.v1';
+var saved=loadSaved();
+
+function loadSaved(){
+  try{var v=JSON.parse(localStorage.getItem(KEY)||'[]');return Array.isArray(v)?v.filter(function(x){return x&&typeof x.title==='string'}).slice(0,200):[]}catch(e){return []}
+}
+function persist(){try{localStorage.setItem(KEY,JSON.stringify(saved))}catch(e){}}
+function isSaved(t){return saved.some(function(s){return s.title===t})}
+function toggleSave(item){
+  var i=-1;saved.forEach(function(s,k){if(s.title===item.title)i=k});
+  if(i>=0){saved.splice(i,1);toast('Removed from shortlist')}else{saved.push(item);toast('Saved to shortlist')}
+  persist();refreshAll();
+}
+
+/* ---------- generator ---------- */
+function eligible(){
+  return AREAS.filter(function(a){
+    if(st.area!=='any')return a.id===st.area;
+    if(st.type==='seminar')return true;
+    if(st.lab==='basic')return a.basic!==false;
+    if(st.lab==='molecular')return a.molOK!==false;
+    return true;
+  });
+}
+function build(){
+  var a=pick(eligible()),loc=locPhrase($('loc').value);
+  if(st.type==='seminar'){
+    return {title:cap(pick(STPL)(pick(a.pool))),area:a,type:'Seminar',mode:null,hint:SEM_HINT,list:LISTS.seminar,note:''};
+  }
+  var mode=st.lab,note='';
+  if(mode==='basic'&&a.basic===false){mode='desk';note=a.name+' projects usually need molecular tools or a computer, so this one is computer-based.'}
+  if(mode==='molecular'&&a.molOK===false){mode='desk';note=a.name+' projects are usually computer-based, so this one needs no lab.'}
+  if(mode==='desk'){
+    var kinds=[function(){return {t:'A systematic review of published evidence on '+pick(a.pool),k:'review'}}];
+    if(a.survey.length)kinds.push(function(){return {t:'Knowledge, attitude and practice of '+pick(a.survey)+' among university students'+loc+': a cross-sectional survey',k:'survey'}});
+    if(a.silico.length)kinds.push(function(){return {t:pick(a.silico),k:'silico'}});
+    var r=pick(kinds)();
+    return {title:cap(r.t),area:a,type:'Project',mode:'desk',hint:HINTS[r.k],list:LISTS[r.k],note:note};
+  }
+  var p=pick(a.pairs),t=fill(pick(a.ptpl),{org:p[0],src:p[1],loc:loc});
+  if(mode==='molecular')t+=a.mol;
+  return {title:cap(t),area:a,type:'Project',mode:mode,hint:a.m[mode==='molecular'?'mol':'basic'],list:LISTS.lab,note:note};
+}
+function generate(){
+  var res,n=0;
+  do{res=build();n++}while(res.title===st.last&&n<8);
+  st.last=res.title;st.cur=res;renderResult(res);growDish();
+}
+function chip(cls,text){return '<span class="chip '+cls+'">'+esc(text)+'</span>'}
+function renderResult(r){
+  $('rChips').innerHTML=chip('',r.area.name)+chip('type',r.type)+(r.mode?chip('mode',MODE[r.mode]):'');
+  $('rTitle').textContent=r.title;
+  var n=$('rNote');n.textContent=r.note;n.hidden=!r.note;
+  $('rHint').textContent=r.hint;
+  $('rList').innerHTML=r.list.map(function(x){return '<li>'+esc(x)+'</li>'}).join('');
+  updateSaveBtn();
+}
+function itemFromResult(r){return {title:r.title,area:r.area.name,type:r.type,mode:r.mode?MODE[r.mode]:''}}
+function updateSaveBtn(){
+  if(!st.cur)return;
+  var on=isSaved(st.cur.title),b=$('save');
+  b.setAttribute('aria-pressed',on?'true':'false');
+  b.textContent=on?'Saved to shortlist':'Save to shortlist';
+}
+function growDish(){
+  var ns='http://www.w3.org/2000/svg',g=$('colonies');g.innerHTML='';
+  var n=14+Math.floor(Math.random()*10),cols=['var(--violet)','var(--safranin)'];
+  for(var i=0;i<n;i++){
+    var ang=Math.random()*Math.PI*2,rr=Math.sqrt(Math.random())*72;
+    var c=document.createElementNS(ns,'circle');
+    c.setAttribute('cx',(100+Math.cos(ang)*rr).toFixed(1));
+    c.setAttribute('cy',(100+Math.sin(ang)*rr).toFixed(1));
+    c.setAttribute('r',(3+Math.random()*7).toFixed(1));
+    c.setAttribute('fill',cols[Math.random()<.6?0:1]);
+    c.setAttribute('class','col');
+    c.style.transitionDelay=(i*30)+'ms';
+    g.appendChild(c);
+    (function(el){requestAnimationFrame(function(){requestAnimationFrame(function(){el.classList.add('on')})})})(c);
+  }
+}
+
+/* ---------- library ---------- */
+function filtered(){
+  var q=lib.q.trim().toLowerCase();
+  return LIB.filter(function(e){
+    if(lib.type!=='all'&&e.type!==lib.type)return false;
+    if(lib.area!=='all'&&e.area!==lib.area)return false;
+    if(lib.lab!=='all'&&e.mode!==lib.lab)return false;
+    if(q&&(e.title+' '+byId[e.area].name).toLowerCase().indexOf(q)<0)return false;
+    return true;
+  });
+}
+function rowHTML(title,areaName,type,mode,idx,kind){
+  var on=isSaved(title);
+  return '<li class="titem"><div><p class="tt">'+esc(title)+'</p><div class="chips">'+chip('',areaName)+chip('type',type)+(mode?chip('mode',mode):'')+'</div></div>'+
+   '<div class="tact">'+
+   (kind==='lib'
+     ?'<button class="btn ghost small" data-act="save" data-i="'+idx+'" aria-pressed="'+on+'">'+(on?'Saved':'Save')+'</button><button class="btn ghost small" data-act="copy" data-i="'+idx+'">Copy</button>'
+     :'<button class="btn ghost small" data-act="copy-s" data-i="'+idx+'">Copy</button><button class="btn ghost small" data-act="remove" data-i="'+idx+'">Remove</button>')+
+   '</div></li>';
+}
+function renderLibrary(){
+  var f=filtered(),shown=f.slice(0,lib.shown);
+  $('libList').innerHTML=shown.length?shown.map(function(e){
+    return rowHTML(e.title,byId[e.area].name,e.type==='project'?'Project':'Seminar',e.type==='project'?MODE[e.mode]:'',LIB.indexOf(e),'lib');
+  }).join(''):'<li class="empty">No topics match those filters. Try a different keyword or reset the filters.</li>';
+  $('libCount').textContent='Showing '+shown.length+' of '+f.length+' topics';
+  $('more').hidden=f.length<=lib.shown;
+}
+function renderShortlist(){
+  $('navCount').textContent=saved.length;
+  $('shortList').innerHTML=saved.length?saved.map(function(s,i){return rowHTML(s.title,s.area,s.type,s.mode,i,'short')}).join(''):
+   '<li class="empty">Nothing saved yet. Use Save on any topic to build a shortlist.</li>';
+  $('copyAll').hidden=$('clearAll').hidden=!saved.length;
+}
+function refreshAll(){renderLibrary();renderShortlist();updateSaveBtn()}
+
+/* ---------- utilities ---------- */
+var tt;
+function toast(msg){
+  var t=$('toast');t.textContent=msg;t.classList.add('show');
+  clearTimeout(tt);tt=setTimeout(function(){t.classList.remove('show')},2000);
+}
+function copyText(text){
+  var done=function(){toast('Copied to clipboard')};
+  var fallback=function(){
+    try{
+      var ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';
+      document.body.appendChild(ta);ta.select();var ok=document.execCommand('copy');ta.remove();
+      ok?done():toast('Copy failed. Select the text and copy it manually.');
+    }catch(e){toast('Copy failed. Select the text and copy it manually.')}
+  };
+  try{
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done,fallback)}else{fallback()}
+  }catch(e){fallback()}
+}
+
+/* ---------- wiring ---------- */
+function opt(v,t){return '<option value="'+esc(v)+'">'+esc(t)+'</option>'}
+$('area').innerHTML=opt('any','Any area')+AREAS.map(function(a){return opt(a.id,a.name)}).join('');
+$('fArea').innerHTML=opt('all','All areas')+AREAS.map(function(a){return opt(a.id,a.name)}).join('');
+$('count').textContent=LIB.length;
+
+document.querySelectorAll('input[name=type]').forEach(function(r){r.addEventListener('change',function(){
+  st.type=r.value;
+  var sem=st.type==='seminar';
+  $('labField').hidden=sem;$('locField').hidden=sem;
+})});
+document.querySelectorAll('input[name=lab]').forEach(function(r){r.addEventListener('change',function(){st.lab=r.value})});
+$('area').addEventListener('change',function(){st.area=this.value});
+$('go').addEventListener('click',generate);
+$('again').addEventListener('click',generate);
+$('save').addEventListener('click',function(){if(st.cur)toggleSave(itemFromResult(st.cur))});
+$('copy').addEventListener('click',function(){if(st.cur)copyText(st.cur.title)});
+
+$('q').addEventListener('input',function(){lib.q=this.value;lib.shown=15;renderLibrary()});
+$('fType').addEventListener('change',function(){lib.type=this.value;lib.shown=15;renderLibrary()});
+$('fArea').addEventListener('change',function(){lib.area=this.value;lib.shown=15;renderLibrary()});
+$('fLab').addEventListener('change',function(){lib.lab=this.value;lib.shown=15;renderLibrary()});
+$('reset').addEventListener('click',function(){
+  lib={q:'',type:'all',area:'all',lab:'all',shown:15};
+  $('q').value='';$('fType').value='all';$('fArea').value='all';$('fLab').value='all';renderLibrary();
+});
+$('more').addEventListener('click',function(){lib.shown+=15;renderLibrary()});
+
+$('libList').addEventListener('click',function(e){
+  var b=e.target.closest('button[data-act]');if(!b)return;
+  var it=LIB[+b.dataset.i];if(!it)return;
+  if(b.dataset.act==='copy')copyText(it.title);
+  if(b.dataset.act==='save')toggleSave({title:it.title,area:byId[it.area].name,type:it.type==='project'?'Project':'Seminar',mode:it.type==='project'?MODE[it.mode]:''});
+});
+$('shortList').addEventListener('click',function(e){
+  var b=e.target.closest('button[data-act]');if(!b)return;
+  var i=+b.dataset.i,s=saved[i];if(!s)return;
+  if(b.dataset.act==='copy-s')copyText(s.title);
+  if(b.dataset.act==='remove'){saved.splice(i,1);persist();refreshAll();toast('Removed from shortlist')}
+});
+$('copyAll').addEventListener('click',function(){copyText(saved.map(function(s){return '- '+s.title}).join('\n'))});
+$('clearAll').addEventListener('click',function(){saved=[];persist();refreshAll();toast('Shortlist cleared')});
+
+refreshAll();
+generate();
+})();
+</script>
+</body>
+</html>
